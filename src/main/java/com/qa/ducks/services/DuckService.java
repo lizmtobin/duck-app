@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.qa.ducks.data.Duck;
+import com.qa.ducks.exceptions.DuckNotFoundException;
 import com.qa.ducks.repo.DuckRepo;
 
 @Service
@@ -31,6 +32,10 @@ public class DuckService {
 
 	public List<Duck> getByName(String name) {
 		return this.repo.findByName(name);
+	}
+
+	public List<Duck> getByNameOrColour(String name, String colour) {
+		return this.repo.findByNameOrColour(name, colour);
 	}
 
 	public Duck updateDuck(Integer id, Duck newDuck) {
